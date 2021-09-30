@@ -18,15 +18,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="azX-Rb-pco">
-                                <rect key="frame" x="50" y="338" width="314" height="34"/>
+                                <rect key="frame" x="50" y="308" width="314" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="ZM8-sb-vJA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZl-Ad-eUz">
-                                <rect key="frame" x="50" y="422" width="314" height="34"/>
+                                <rect key="frame" x="50" y="392" width="314" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="94C-vS-kgg"/>
                                 </constraints>
@@ -34,7 +34,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVA-7p-x1b">
-                                <rect key="frame" x="50" y="525.5" width="314" height="50"/>
+                                <rect key="frame" x="50" y="495.5" width="314" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="vvb-qy-5Vf"/>
@@ -48,23 +48,30 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password must be at least 6 characters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3C-ae-TQA">
-                                <rect key="frame" x="50" y="466" width="314" height="19.5"/>
+                                <rect key="frame" x="50" y="436" width="314" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" systemColor="systemPinkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter valid email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRh-9T-8fP">
-                                <rect key="frame" x="50" y="382" width="314" height="20"/>
+                                <rect key="frame" x="50" y="352" width="314" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" systemColor="systemPinkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w3F-HK-6RP">
+                                <rect key="frame" x="147" y="138" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Uag-jr-KpH"/>
+                                    <constraint firstAttribute="height" constant="120" id="abp-sy-Y81"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CuJ-7B-rUM"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="w3F-HK-6RP" firstAttribute="top" secondItem="CuJ-7B-rUM" secondAttribute="top" constant="50" id="0IG-T4-NiF"/>
                             <constraint firstItem="WRh-9T-8fP" firstAttribute="leading" secondItem="CuJ-7B-rUM" secondAttribute="leading" constant="50" id="8qd-rb-RbI"/>
-                            <constraint firstItem="azX-Rb-pco" firstAttribute="top" secondItem="CuJ-7B-rUM" secondAttribute="top" constant="250" id="9CD-zA-0ab"/>
                             <constraint firstItem="BVA-7p-x1b" firstAttribute="top" secondItem="N3C-ae-TQA" secondAttribute="bottom" constant="40" id="Ea5-9w-jHK"/>
                             <constraint firstItem="azX-Rb-pco" firstAttribute="leading" secondItem="CuJ-7B-rUM" secondAttribute="leading" constant="50" id="QKb-BN-3Ct"/>
                             <constraint firstItem="WRh-9T-8fP" firstAttribute="top" secondItem="azX-Rb-pco" secondAttribute="bottom" constant="10" id="ZnO-6s-vJn"/>
@@ -76,7 +83,9 @@
                             <constraint firstItem="BVA-7p-x1b" firstAttribute="leading" secondItem="CuJ-7B-rUM" secondAttribute="leading" constant="50" id="iYN-AE-dfX"/>
                             <constraint firstItem="CuJ-7B-rUM" firstAttribute="trailing" secondItem="YZl-Ad-eUz" secondAttribute="trailing" constant="50" id="oiL-qO-8al"/>
                             <constraint firstItem="N3C-ae-TQA" firstAttribute="top" secondItem="YZl-Ad-eUz" secondAttribute="bottom" constant="10" id="pA7-Cq-sbQ"/>
+                            <constraint firstItem="azX-Rb-pco" firstAttribute="top" secondItem="w3F-HK-6RP" secondAttribute="bottom" constant="50" id="uW7-Td-0cu"/>
                             <constraint firstItem="CuJ-7B-rUM" firstAttribute="trailing" secondItem="WRh-9T-8fP" secondAttribute="trailing" constant="50" id="uzc-rD-Cfo"/>
+                            <constraint firstItem="w3F-HK-6RP" firstAttribute="centerX" secondItem="WzN-4A-hGh" secondAttribute="centerX" id="v7t-bC-jWA"/>
                             <constraint firstItem="N3C-ae-TQA" firstAttribute="leading" secondItem="CuJ-7B-rUM" secondAttribute="leading" constant="50" id="vET-a1-3IT"/>
                         </constraints>
                     </view>
@@ -84,6 +93,7 @@
                     <connections>
                         <outlet property="emailWarningLabel" destination="WRh-9T-8fP" id="zjD-cK-D00"/>
                         <outlet property="loginButton" destination="BVA-7p-x1b" id="nYI-cQ-qSw"/>
+                        <outlet property="loginImgView" destination="w3F-HK-6RP" id="UWV-ct-ORS"/>
                         <outlet property="passwordTextField" destination="YZl-Ad-eUz" id="yqD-IX-hUr"/>
                         <outlet property="passwordWarningLabel" destination="N3C-ae-TQA" id="lVW-7v-rLO"/>
                         <outlet property="usernameTextField" destination="azX-Rb-pco" id="237-AE-4ig"/>

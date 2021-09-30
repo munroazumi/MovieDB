@@ -9,6 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var loginImgView: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailWarningLabel: UILabel!
@@ -20,7 +21,8 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setUpTitleView()
-
+        loginImgView.image = UIImage.init(named: "MovieDBIcon")
+        loginImgView.makeRounded()
         usernameTextField.delegate = self
         passwordTextField.delegate = self
         emailWarningLabel.isHidden = true
