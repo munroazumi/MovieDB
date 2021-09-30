@@ -33,17 +33,16 @@ class MovieListViewController: UIViewController {
     func setUpTitleView() {
         let title: UILabel = UILabel.init()
         title.text = "MOVIES"
-        title.font =  UIFont(name: "KhmerSagnamMN", size: 44)
-        title.textColor = UIColor.systemBlue
+        title.font = UIFont(name: "KhmerSagnamMN", size: 44)
+        title.textColor = UIColor(rgb: 0x68FBCF)
         title.textAlignment = .center
         navigationItem.titleView = title
-        navigationController?.navigationBar.barTintColor = .black
     }
 }
 
 //MARK: -
 
-extension MovieListViewController: UITableViewDataSource, UISearchBarDelegate, ApiControllerDelegate {
+extension MovieListViewController: UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, ApiControllerDelegate {
     
     func receiveDataUpdate(data: MovieListModel) {
         //receive JSON data from ApiController, then make copy into filteredMovieList
@@ -69,6 +68,15 @@ extension MovieListViewController: UITableViewDataSource, UISearchBarDelegate, A
             return movieCell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = filteredMovieList?.results?[indexPath.row]
+        let st = UIStoryboard.init(name: "Main", bundle: nil)
+        if let movieDetailVC = st.instantiateViewController(identifier: "MovieDetailViewController") as? MovieDetailViewController {
+            movieDetailVC.movie = movie
+            self.navigationController?.pushViewController(movieDetailVC, animated: true)
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

@@ -11,8 +11,8 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var emailWarningLabel: UILabel!
+    @IBOutlet weak var passwordWarningLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
@@ -24,25 +24,25 @@ class LoginViewController: UIViewController {
         usernameTextField.delegate = self
         passwordTextField.delegate = self
         emailWarningLabel.isHidden = true
-        warningLabel.isHidden = true
+        passwordWarningLabel.isHidden = true
         loginButton.makeRounded()
-        loginButton.backgroundColor = .cyan
+        loginButton.backgroundColor = UIColor(rgb: 0x68FBCF)
     }
     
     func setUpTitleView() {
         let title: UILabel = UILabel.init()
         title.text = "THE MOVIE DB"
         title.font =  UIFont(name: "KhmerSagnamMN", size: 44)
-        title.textColor = .cyan
+        title.textColor = UIColor(rgb: 0x68FBCF)
         title.textAlignment = .center
         navigationItem.titleView = title
-        navigationController?.navigationBar.barTintColor = .black
     }
     
     @IBAction func loginButtonClicked(_ sender: UIButton) {
         let st = UIStoryboard.init(name: "Main", bundle: nil)
         
         if passwordMin() && isValidEmail(usernameTextField.text ?? "") {
+            emailWarningLabel.isHidden = true
             let movieVC = st.instantiateViewController(identifier: "MovieListViewController")
             navigationController?.pushViewController(movieVC, animated: true)
         }
@@ -57,10 +57,10 @@ class LoginViewController: UIViewController {
     
     func passwordMin() -> Bool {
         if passwordTextField.text?.count ?? 0 >= 6 {
-            warningLabel.isHidden = true
+            passwordWarningLabel.isHidden = true
             return true
         }
-        warningLabel.isHidden = false
+        passwordWarningLabel.isHidden = false
         return false
     }
 
